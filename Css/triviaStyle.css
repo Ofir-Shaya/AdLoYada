@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@100;400&family=Henny+Penny&family=Pattaya&family=Roboto:wght@100&family=Rubik+Moonrocks&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  direction: ltr;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+body {
+  background-color: #f2f2f2;
+  color: #0d0d0d;
+}
+
+h1,
+h2 {
+  font-family: "Heebo", sans-serif;
+  font-weight: 300;
+  font-size: 48px;
+  letter-spacing: 2px;
+}
+
+p {
+  font-family: "Roboto", sans-serif;
+}
+
+.false {
+  background-color: rgba(168, 56, 56, 0.747);
+  width: 50px;
+}
+
+.correct {
+  background-color: #8cbf3f;
+  width: 50px;
+}
+
+#checker {
+  display: flex;
+}
+
+#Questions {
+  display: flex;
+  flex-direction: column;
+}
+
+#Answers {
+  display: flex;
+  flex-direction: column;
+}
+#Answers div {
+  padding: 10px;
+  border-top: 1px solid grey;
+  margin-bottom: 5px;
+}
+#Answers :hover {
+  cursor: pointer;
+  color: #8cbf3f;
+  background-color: #f2f2f2;
+}
+#Answers :first-child {
+  border: none;
+}
+#Answers :last-child {
+  border-bottom: 1px solid grey;
+}/*# sourceMappingURL=triviaStyle.css.map */

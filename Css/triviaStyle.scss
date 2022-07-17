@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@100;400&family=Henny+Penny&family=Pattaya&family=Roboto:wght@100&family=Rubik+Moonrocks&display=swap");
+$fontTitle: "Rubik Moonrocks", cursive;
+$fontHeader: "Heebo", sans-serif;
+$fontText: "Roboto", sans-serif;
+
+$white: #f2f2f2;
+$green: #8cbf3f;
+$purple: #9453a6;
+$yellow: #f2cc0f;
+$black: #0d0d0d;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  direction: ltr;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+body {
+  background-color: $white;
+  color: $black;
+}
+h1,
+h2 {
+  font-family: $fontHeader;
+  font-weight: 300;
+  font-size: 48px;
+  letter-spacing: 2px;
+}
+p {
+  font-family: $fontText;
+}
+.false {
+  background-color: rgba(168, 56, 56, 0.747);
+  width: 50px;
+}
+.correct {
+  background-color: $green;
+  width: 50px;
+}
+#checker {
+  display: flex;
+}
+#Questions {
+  display: flex;
+  flex-direction: column;
+}
+#Answers {
+  display: flex;
+  flex-direction: column;
+
+  div {
+    padding: 10px;
+    border-top: 1px solid grey;
+    margin-bottom: 5px;
+  }
+  :hover {
+    cursor: pointer;
+    color: $green;
+    background-color: $white;
+  }
+  :first-child {
+    border: none;
+  }
+  :last-child {
+    border-bottom: 1px solid grey;
+  }
+}

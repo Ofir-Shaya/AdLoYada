@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>חולון - עדלאידע</title>
+    <link
+      rel="shortcut icon"
+      href="./Css/Images/holon.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="./Css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.rtl.min.css"
+      integrity="sha384-dc2NSrAXbAkjrdm9IYrX10fQq9SDG6Vjz7nQVKdKcJl3pC+k37e7qJR5MVSCS+wR"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      .card {
+        background-color: transparent;
+        border: none;
+      }
+      .outsideModal {
+        max-width: 100%;
+        max-height: 100%;
+      }
+      .outsideModal :hover {
+        filter: brightness(66.66666667%);
+        transition: all 0.4s ease-in;
+        -webkit-transition: all 0.4s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="coronaAlert">
+      <a
+        href="https://www.holon.muni.il/Lists/List2/CustomDispForm.aspx?ID=1678"
+        target="_blank"
+        style="border-radius: 1em"
+      >
+        <span
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            x="0px"
+            y="0px"
+            width="20"
+            height="20"
+            viewBox="0 0 172 172"
+            style="fill: #000000"
+          >
+            <g
+              fill="none"
+              fill-rule="nonzero"
+              stroke="none"
+              stroke-width="1"
+              stroke-linecap="butt"
+              stroke-linejoin="miter"
+              stroke-miterlimit="10"
+              stroke-dasharray=""
+              stroke-dashoffset="0"
+              font-family="none"
+              font-weight="none"
+              font-size="none"
+              text-anchor="none"
+              style="mix-blend-mode: normal"
+            >
+              <path d="M0,172v-172h172v172z" fill="none"></path>
+              <g fill="#000">
+                <path
+                  d="M86,14.33333c-39.51676,0 -71.66667,32.14993 -71.66667,71.66667c0,39.51673 32.1499,71.66667 71.66667,71.66667c39.51676,0 71.66667,-32.14993 71.66667,-71.66667c0,-39.51673 -32.1499,-71.66667 -71.66667,-71.66667zM86,25.08333c33.70704,0 60.91667,27.20965 60.91667,60.91667c0,33.70702 -27.20963,60.91667 -60.91667,60.91667c-33.70704,0 -60.91667,-27.20965 -60.91667,-60.91667c0,-33.70702 27.20963,-60.91667 60.91667,-60.91667zM86,50.16667c-3.95804,0 -7.16667,3.20863 -7.16667,7.16667c0,3.95804 3.20863,7.16667 7.16667,7.16667c3.95804,0 7.16667,-3.20863 7.16667,-7.16667c0,-3.95804 -3.20863,-7.16667 -7.16667,-7.16667zM85.91601,75.17302c-2.96578,0.04633 -5.33356,2.48614 -5.29101,5.45198v39.41667c-0.02741,1.93842 0.99102,3.74144 2.66532,4.71865c1.6743,0.97721 3.74507,0.97721 5.41937,0c1.6743,-0.97721 2.69273,-2.78023 2.66532,-4.71865v-39.41667c0.02085,-1.45347 -0.54782,-2.85342 -1.57635,-3.88062c-1.02852,-1.0272 -2.4292,-1.59408 -3.88264,-1.57136z"
+                ></path>
+              </g>
+            </g>
+          </svg>
+          <h2 class="coronaTitle">
+            התראות לגבי נגיף הקורונה בעיר חולון. לחץ בשביל לקבל את המידע העדכני
+          </h2></span
+        ></a
+      >
+      <br />
+      <a
+        href="https://corona.health.gov.il/vaccine-for-covid/"
+        target="_blank"
+        style="border-radius: 1em"
+      >
+        <span class="alert-icon"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            x="0px"
+            y="0px"
+            width="20"
+            height="20"
+            viewBox="0 0 172 172"
+            style="fill: #000000"
+          >
+            <g
+              fill="none"
+              fill-rule="nonzero"
+              stroke="none"
+              stroke-width="1"
+              stroke-linecap="butt"
+              stroke-linejoin="miter"
+              stroke-miterlimit="10"
+              stroke-dasharray=""
+              stroke-dashoffset="0"
+              font-family="none"
+              font-weight="none"
+              font-size="none"
+              text-anchor="none"
+              style="mix-blend-mode: normal"
+            >
+              <path d="M0,172v-172h172v172z" fill="none"></path>
+              <g fill="#000">
+                <path
+                  d="M86,14.33333c-39.51676,0 -71.66667,32.14993 -71.66667,71.66667c0,39.51673 32.1499,71.66667 71.66667,71.66667c39.51676,0 71.66667,-32.14993 71.66667,-71.66667c0,-39.51673 -32.1499,-71.66667 -71.66667,-71.66667zM86,25.08333c33.70704,0 60.91667,27.20965 60.91667,60.91667c0,33.70702 -27.20963,60.91667 -60.91667,60.91667c-33.70704,0 -60.91667,-27.20965 -60.91667,-60.91667c0,-33.70702 27.20963,-60.91667 60.91667,-60.91667zM86,50.16667c-3.95804,0 -7.16667,3.20863 -7.16667,7.16667c0,3.95804 3.20863,7.16667 7.16667,7.16667c3.95804,0 7.16667,-3.20863 7.16667,-7.16667c0,-3.95804 -3.20863,-7.16667 -7.16667,-7.16667zM85.91601,75.17302c-2.96578,0.04633 -5.33356,2.48614 -5.29101,5.45198v39.41667c-0.02741,1.93842 0.99102,3.74144 2.66532,4.71865c1.6743,0.97721 3.74507,0.97721 5.41937,0c1.6743,-0.97721 2.69273,-2.78023 2.66532,-4.71865v-39.41667c0.02085,-1.45347 -0.54782,-2.85342 -1.57635,-3.88062c-1.02852,-1.0272 -2.4292,-1.59408 -3.88264,-1.57136z"
+                ></path>
+              </g>
+            </g>
+          </svg>
+          <h2 class="coronaTitle">
+            לחץ כדי לקבל את המידע העדכני לגבי החיסון לנגיף הקורונה
+          </h2>
+        </span></a
+      >
+    </div>
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <div class="container">
+        <a href="#" class="navbar-brand h1 titleName">
+          <img
+            class="d-inline-block align-top"
+            src="Css/Images/holon.png"
+            width="150"
+            height="150"
+            alt="חולון"
+          />
+        </a>
+        <h1 class="titleName">עיריית חולון</h1>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#titleBigNav"
+          aria-controls="titleBigNav"
+          aria-expanded="false"
+          aria-label="Toggle Navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="titleBigNav">
+          <ul class="nav nav-pills nav-fill">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                id="activePill"
+                aria-current="page"
+                href="./index.html"
+                >בית</a
+              >
+            </li>
+            <li class="nav-item" id="pillLink">
+              <a class="nav-link" id="pillText" href="./Pages/MoreInfo.html"
+                >מידע נוסף</a
+              >
+            </li>
+            <li class="nav-item" id="pillLink">
+              <a class="nav-link" id="pillText" href="./Pages/Media.html"
+                >מדיה</a
+              >
+            </li>
+            <li class="nav-item" id="pillLink">
+              <a class="nav-link" id="pillText" href="./Pages/Faq.html"
+                >שאלות נפוצות</a
+              >
+            </li>
+            <li class="nav-item" id="pillLink">
+              <a class="nav-link" id="pillText" href="./Pages/Contact.html"
+                >יצירת קשר</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="body">
+      <div class="bodyTitle"><h1>העדלאידע בחולון</h1></div>
+      <div class="bodyText">
+        <p>
+          תהלוכת פורים הגדולה במדינה מתקיימת מידי שנה בעיר חולון והיא מהווה שיאה
+          של פעילות קהילתית וארגונית המתרחשת במהלך השנה ומתעצמת לקראת החג.
+        </p>
+        <p>
+          בתהלוכה, אשר מתמקדת בכל פעם בנושא מרכזי שונה, נוטלים חלק אלפי צועדים,
+          ביניהם: תלמידי בתי הספר בחולון, משתתפי החוגים במרכזים הקהילתיים
+          ובמרכזי התרבות והספורט, להקות של מתעמלים, פעלולנים ואקרובטים, קבוצות
+          מנגנים ורקדנים, קבוצות תיאטרון רחוב, וכמובן מיצגי ענק ססגוניים,
+          המהווים את החלק המרגש והמרשים במיוחד. לצד הצועדים מחולון משתתפים
+          בעדלאידע צועדים אורחים מרחבי הארץ ולעיתים אף מהעולם.
+        </p>
+        <p>
+          העדלאידע צועדת לאורך רחובותיה המרכזיים של חולון לעיני מאות אלפי צופים
+          מכל הגילאים. לרוב מסתיימת הצעדה במופע ובמסיבת רחוב צבעונית ועליזה
+          במיוחד ברחבה שמול העירייה. מתום העדלאידע ועד לסיום חג הפורים מוצבים
+          ברחבת המדיטק המיצגים שהשתתפו בתהלוכה להנאת העוברים והשבים.
+        </p>
+      </div>
+      <div class="picturesCarousel">
+        <div
+          id="carouselExampleCaptions"
+          class="carousel slide"
+          data-bs-ride="false"
+        >
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="3"
+              aria-label="Slide 4"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="4"
+              aria-label="Slide 5"
+            ></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                src="./Css/Images/girl_happy.jpg"
+                class="d-inline-block w-50 justify-content-center align-items-center"
+                alt="elephant"
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <h5>חולון עיר הילדים</h5>
+                <p>כל הצעירים יודעים שחולון זאת העיר</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img
+                src="./Css/Images/men_with_feather.jpg"
+                class="d-inline-block w-50 justify-content-center align-items-center"
+                alt="men with feather"
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <h5>קרנבל בחולון</h5>
+                <p>חגיגות בלי הפסקה בחולון</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img
+                src="./Css/Images/girls_in_mask.jpg"
+                class="d-inline-block w-50 justify-content-center align-items-center"
+                alt="girls with mask"
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <h5>נטו פאן בחולון</h5>
+                <p>כולם בחולון חוגגים</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img
+                src="./Css/Images/big_old.jpg"
+                class="d-inline-block w-50 justify-content-center align-items-center"
+                alt="Big old man in the parade"
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <h5>מצעד חולון</h5>
+                <p>המצעד המפואר בחולון</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img
+                src="./Css/Images/woman_with_umberlla.jpg"
+                class="d-inline-block w-50 justify-content-center align-items-center"
+                alt="woman with umberlla"
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <h5>תחפושות מגוונות במצעד</h5>
+                <p>כולם באים איך שהם אוהבים בחולון</p>
+              </div>
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              fill="#0d0d0d"
+              class="bi bi-arrow-right"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+              />
+            </svg>
+
+            <span class="visually-hidden">קדימה</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              fill="#0d0d0d"
+              class="bi bi-arrow-left"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
+              />
+            </svg>
+            <span class="visually-hidden">אחורה</span>
+          </button>
+        </div>
+      </div>
+      <div class="sponsors">
+        <h1>הספונסרים שלנו</h1>
+        <p>
+          כל האירוע המדהים הזה לא היה אפשרי ללא העזרה של החברות המדהימות האלו
+        </p>
+        <div class="cards">
+          <div class="card">
+            <div class="outsideModal">
+              <a
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#azrealiModal"
+              >
+                <img
+                  src="./Css/Images/azreali.jpg"
+                  class="card-img"
+                  id="modalImage"
+                  alt="עזריאלי"
+                  style="width: 75px; border-radius: 1em"
+                />
+              </a>
+            </div>
+            <div
+              class="modal fade"
+              id="azrealiModal"
+              tabindex="-1"
+              aria-labelledby="AzrealiModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="AzrealiModalLabel">
+                      קניוני עזריאלי
+                    </h5>
+                  </div>
+                  <div class="modal-body">
+                    <a
+                      href="https://www.azrielimalls.co.il/"
+                      target="_blank"
+                      style="cursor: pointer"
+                    >
+                      <img
+                        src="./Css/Images/azreali.jpg"
+                        class="card-img"
+                        alt="עזריאלי"
+                        style="width: 148px; height: 148px; border-radius: 1em"
+                      />
+                      <p>קניוני עזריאלי עזרו לנו עם השטח למצעד</p>
+                    </a>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      סגור
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="outsideModal">
+              <a
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#burgeranchModal"
+              >
+                <img
+                  src="./Css/Images/burgeranch.png"
+                  class="card-img"
+                  id="modalImage"
+                  alt="בורגראנץ"
+                  style="width: 75px; border-radius: 1em"
+                />
+              </a>
+            </div>
+            <div
+              class="modal fade"
+              id="burgeranchModal"
+              tabindex="-1"
+              aria-labelledby="burgeranchModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="burgeranchModalLabel">
+                      בורגראנץ
+                    </h5>
+                  </div>
+                  <div class="modal-body">
+                    <a
+                      href="https://app.burgeranch.co.il/"
+                      target="_blank"
+                      style="cursor: pointer"
+                    >
+                      <img
+                        src="./Css/Images/burgeranch.png"
+                        class="card-img"
+                        alt="בורגראנץ"
+                        style="width: 148px; height: 148px; border-radius: 1em"
+                      />
+                      <p>בורגראנץ עזרו לנו עם אוכל ושתייה למצעד</p>
+                    </a>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      סגור
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="outsideModal">
+              <a
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#edenModal"
+              >
+                <img
+                  src="./Css/Images/edenwater.jpg"
+                  class="card-img"
+                  id="modalImage"
+                  alt="מיעדן"
+                  style="width: 75px; border-radius: 1em"
+                />
+              </a>
+            </div>
+            <div
+              class="modal fade"
+              id="edenModal"
+              tabindex="-1"
+              aria-labelledby="edenModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="edenModalLabel">מיעדן</h5>
+                  </div>
+                  <div class="modal-body">
+                    <a
+                      href="https://www.meyeden.co.il/"
+                      target="_blank"
+                      style="cursor: pointer"
+                    >
+                      <img
+                        src="./Css/Images/edenwater.jpg"
+                        class="card-img"
+                        alt="מיעדן"
+                        style="width: 148px; height: 148px; border-radius: 1em"
+                      />
+                      <p>
+                        מי עדן עזרו לנו לדאוג שכולם ישתו הרבה מים ויהנו כמה
+                        שאפשר
+                      </p>
+                    </a>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      סגור
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="outsideModal">
+              <a
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#goldstarModal"
+              >
+                <img
+                  src="./Css/Images/goldstar.png"
+                  class="card-img"
+                  id="modalImage"
+                  alt="גולדסטאר"
+                  style="width: 75px; height: 75px; border-radius: 1em"
+                />
+              </a>
+            </div>
+            <div
+              class="modal fade"
+              id="goldstarModal"
+              tabindex="-1"
+              aria-labelledby="goldstarModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="goldstarModalLabel">
+                      גולדסטאר
+                    </h5>
+                  </div>
+                  <div class="modal-body">
+                    <a
+                      href="https://blend.co.il/single-products/%D7%91%D7%99%D7%A8%D7%94/%D7%92%D7%95%D7%9C%D7%93%D7%A1%D7%98%D7%90%D7%A8"
+                      target="_blank"
+                      style="cursor: pointer"
+                    >
+                      <img
+                        src="./Css/Images/goldstar.png"
+                        class="card-img"
+                        alt="גולדסטאר"
+                        style="width: 148px; height: 148px; border-radius: 1em"
+                      />
+                      <p>גולדסטאר עזרו לנו לדאוג שכולם יהנו</p>
+                    </a>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      סגור
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="outsideModal">
+              <a
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#osemModal"
+              >
+                <img
+                  src="./Css/Images/osem.jpg"
+                  class="card-img"
+                  id="modalImage"
+                  alt="אסם"
+                  style="width: 75px; border-radius: 1em"
+                />
+              </a>
+            </div>
+            <div
+              class="modal fade"
+              id="osemModal"
+              tabindex="-1"
+              aria-labelledby="osemModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="osemModalLabel">אסם</h5>
+                  </div>
+                  <div class="modal-body">
+                    <a
+                      href="https://www.osem-nestle.co.il/"
+                      target="_blank"
+                      style="cursor: pointer"
+                    >
+                      <img
+                        src="./Css/Images/osem.jpg"
+                        class="card-img"
+                        alt="אסם"
+                        style="width: 148px; height: 148px; border-radius: 1em"
+                      />
+                      <p>אסם עזרו לנו עם חטיפים לכל ילד</p>
+                    </a>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      סגור
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="outsideModal">
+              <a
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#pizzaModal"
+              >
+                <img
+                  src="./Css/Images/pizzatarsish.jpg"
+                  class="card-img"
+                  id="modalImage"
+                  alt="פיצה תרשיש"
+                  style="width: 75px; height: 75px; border-radius: 1em"
+                />
+              </a>
+            </div>
+            <div
+              class="modal fade"
+              id="pizzaModal"
+              tabindex="-1"
+              aria-labelledby="pizzaModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="pizzaModalLabel">פיצה תרשיש</h5>
+                  </div>
+                  <div class="modal-body">
+                    <a
+                      href="https://easy.co.il/page/10052918"
+                      target="_blank"
+                      style="cursor: pointer"
+                    >
+                      <img
+                        src="./Css/Images/pizzatarsish.jpg"
+                        class="card-img"
+                        alt="פיצה תרשיש"
+                        style="width: 148px; height: 148px; border-radius: 1em"
+                      />
+                      <p>פיצה תרשיש עזרו לנו עם פיצות לכולם</p>
+                    </a>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      סגור
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="outsideModal">
+              <a
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#spatModal"
+              >
+                <img
+                  src="./Css/Images/spat_hotel.png"
+                  class="card-img"
+                  id="modalImage"
+                  alt="ספאט הוטל"
+                  style="width: 75px; height: 75px; border-radius: 1em"
+                />
+              </a>
+            </div>
+            <div
+              class="modal fade"
+              id="spatModal"
+              tabindex="-1"
+              aria-labelledby="spatModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="spatModalLabel">ספאט הוטל</h5>
+                  </div>
+                  <div class="modal-body">
+                    <a
+                      href="https://www.spathotels.com/"
+                      target="_blank"
+                      style="cursor: pointer"
+                    >
+                      <img
+                        src="./Css/Images/spat_hotel.png"
+                        class="card-img"
+                        alt="ספאט הוטל"
+                        style="width: 148px; height: 148px; border-radius: 1em"
+                      />
+                      <p>ספאט הוטל עזרו לנו עם מקומות אירוח</p>
+                    </a>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      סגור
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="footerContent">
+        <img src="./Css/Images/holon.png" alt="עיריית חולון" />
+        <h1>האתר הרשמי של עיריית חולון</h1>
+        <p>מוזמנים לפנות אלינו ברשתות החברתיות:</p>
+        <div class="socialMedia">
+          <ul>
+            <li>
+              <a href="https://twitter.com/hapoelholonbc" target="_blank"
+                ><img src="Css/Images/twitter.png" alt="twitter"
+              /></a>
+            </li>
+            <li>
+              <a
+                href="https://www.youtube.com/user/holonmunicipality"
+                target="_blank"
+                ><img src="Css/Images/youtube.png" alt="youtube"
+              /></a>
+            </li>
+            <li>
+              <a href="https://www.snapchat.com/add/" target="_blank"
+                ><img src="Css/Images/snapchat.png" alt="snapchat"
+              /></a>
+            </li>
+
+            <li>
+              <a href="https://www.instagram.com/holon.muni/" target="_blank"
+                ><img src="Css/Images/instagram.png" alt="instagram"
+              /></a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com/holon.muni" target="_blank"
+                ><img src="Css/Images/facebook.png" alt="facebook"
+              /></a>
+            </li>
+          </ul>
+        </div>
+        <div class="address">
+          <p>או בצורה פיזית בכתובת:</p>
+          <a
+            href="https://www.google.com/maps/place/Haim+Weizman+St+58,+Holon/data=!4m2!3m1!1s0x1502b35e5f86a4b9:0x7f691bc608ba156b?sa=X&ved=2ahUKEwiX0seKwvX4AhVmiP0HHScmD9UQ8gF6BAgKEAE"
+            >חיים ויצמן 58, חולון</a
+          >
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,289 @@
+@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@100;400&family=Henny+Penny&family=Pattaya&family=Roboto:wght@100&family=Rubik+Moonrocks&display=swap");
+$fontTitle: "Rubik Moonrocks", cursive;
+$fontHeader: "Heebo", sans-serif;
+$fontText: "Roboto", sans-serif;
+
+$white: #f2f2f2;
+$green: #8cbf3f;
+$purple: #9453a6;
+$yellow: #f2cc0f;
+$black: #0d0d0d;
+$primary: $green;
+$secondary: $black;
+$success: $yellow;
+$warning: $purple;
+$headerHeight: 10vh;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  direction: rtl;
+}
+body {
+  background-color: $white;
+  color: $black;
+}
+.headerMain {
+  width: 100%;
+  height: $headerHeight;
+  z-index: 1;
+  background-color: $white;
+}
+.header {
+  text-align: center;
+  align-items: center;
+  font-family: $fontHeader;
+  display: grid;
+  width: 70%;
+  height: $headerHeight;
+  margin: auto;
+  grid-template-columns: (1fr, 1fr, 3fr);
+  grid-template-rows: $headerHeight;
+  background-color: white;
+  justify-content: space-evenly;
+  border-radius: 1em;
+  background-color: $white;
+  position: sticky;
+  top: 0;
+}
+.body {
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  background-color: $green;
+  display: grid;
+  grid-template-columns: 65%;
+  grid-template-rows: (150px, 1fr, 1fr, 1fr);
+}
+.footer {
+  background-color: $purple;
+  > .footerContent {
+    justify-content: center;
+    text-align: right;
+    align-items: center;
+    width: 70%;
+    margin: auto;
+    display: flex;
+    img {
+      width: 150px;
+    }
+    p {
+      display: inline-block;
+      margin: 0;
+    }
+    a {
+      color: $black;
+    }
+    > h1 {
+      font-size: 16px;
+      margin: 1em;
+    }
+    > .socialMedia {
+      > ul {
+        list-style-type: none;
+        > li {
+          display: inline;
+          :hover {
+            filter: brightness(66.66666667%);
+            transition: all 0.4s ease-in;
+            -webkit-transition: all 0.4s;
+          }
+          img {
+            width: 45px;
+            height: 45px;
+          }
+        }
+      }
+    }
+  }
+}
+
+h1 {
+  font-family: $fontTitle;
+  font-weight: 300;
+  font-size: 48px;
+  letter-spacing: 2px;
+}
+.titleImage {
+  grid-area: 1 /1 / span 1 / span 1;
+  user-select: none;
+  align-self: baseline;
+}
+.titleName {
+  font-family: $fontHeader;
+  text-shadow: 1px 1px 2px $white;
+  box-shadow: 2px 2px 2px $white;
+  border-radius: 1em;
+  margin-inline-end: 1em;
+  user-select: none;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+}
+.titleNav {
+  grid-area: 1 / 3 / span 1 / span 3;
+  font-family: $fontHeader;
+  font-size: 20px;
+  > ul > li {
+    margin-inline: 4em;
+  }
+}
+.coronaAlert {
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  display: block;
+  font-family: $fontText;
+  background-color: $yellow;
+  padding: 0.5em;
+  display: inline-block;
+  > h2 {
+    font-family: $fontText;
+  }
+  .coronaTitle {
+    display: inline;
+    font-size: 16px;
+    text-decoration: underline;
+    color: $black;
+    letter-spacing: 1px;
+  }
+  .alert-icon {
+    width: 16px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -0.5px;
+    cursor: pointer;
+  }
+}
+
+#activePill {
+  background-color: $green;
+  color: $white;
+  box-shadow: 2px 2px 4px $green;
+}
+#pillLink {
+  color: $green;
+  :link,
+  :visited {
+    color: $green;
+  }
+  :hover {
+    background-color: $green;
+    color: $white;
+    box-shadow: 2px 2px 4px $green;
+    transition: 0.25s all ease-out;
+  }
+}
+#pillText {
+  background-color: $white;
+}
+.nav-item {
+  margin-inline-start: 1em;
+
+  > .nav-link {
+    padding: 0.25em;
+    color: $green;
+  }
+}
+
+.bodyText {
+  margin-block-start: 2em;
+  font-family: $fontText;
+  font-size: 20px;
+}
+.cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.sponsors {
+  margin-block: 4em;
+}
+.picturesCarousel {
+  margin-block-start: 4em;
+}
+.carousel-caption {
+  > h5,
+  p {
+    font-family: $fontTitle;
+    color: $white;
+    letter-spacing: 1.5px;
+  }
+  > h5 {
+    font-size: 28px;
+  }
+  > p {
+    font-size: 20px;
+  }
+}
+.card {
+  background-color: transparent;
+  border: none;
+  margin: 1em;
+}
+.moreInfoBody {
+  text-align: right;
+  h1 {
+    text-align: center;
+  }
+  h2 {
+    font-family: $fontTitle;
+    font-weight: 300;
+    font-size: 30px;
+    letter-spacing: 1.5px;
+  }
+}
+.mayor {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 3fr 1fr;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  .mayorFirstPara {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+  }
+  .mayorSecondPara {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+  }
+  .mayorPicture {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 2;
+  }
+}
+.contactUs {
+  h1 {
+    font-size: 32px;
+  }
+  h2 {
+    font-weight: 300;
+    letter-spacing: 1.5px;
+    font-size: 28px;
+  }
+}
+.contactGrid {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  padding: 15px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 2fr;
+  > a :hover {
+    text-decoration: underline;
+  }
+  > .address {
+    grid-column: 1 / span 2;
+  }
+}
+.Trivia {
+  justify-content: center;
+  text-align: center;
+}
