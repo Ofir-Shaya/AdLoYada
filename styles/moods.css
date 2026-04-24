@@ -1,0 +1,63 @@
+/* Mood-specific theming applied to body via data-mood attribute */
+
+body[data-mood="comfort"] {
+  --mood-color: #C73E3A;
+  --mood-light: rgba(199, 62, 58, 0.1);
+}
+
+body[data-mood="healthy"] {
+  --mood-color: #9FB76B;
+  --mood-light: rgba(159, 183, 107, 0.1);
+}
+
+body[data-mood="adventurous"] {
+  --mood-color: #F4A026;
+  --mood-light: rgba(244, 160, 38, 0.1);
+}
+
+body[data-mood="latenight"] {
+  --mood-color: #14343B;
+  --mood-light: rgba(20, 52, 59, 0.1);
+}
+
+body[data-mood="hangover"] {
+  --mood-color: #5C3A21;
+  --mood-light: rgba(92, 58, 33, 0.1);
+}
+
+body[data-mood="impress"] {
+  --mood-color: #D4A24C;
+  --mood-light: rgba(212, 162, 76, 0.1);
+}
+
+body[data-mood="broke"] {
+  --mood-color: #FF5C8A;
+  --mood-light: rgba(255, 92, 138, 0.1);
+}
+
+body[data-mood="family"] {
+  --mood-color: #F4A026;
+  --mood-light: rgba(244, 160, 38, 0.1);
+}
+
+body[data-mood="solo"] {
+  --mood-color: #9FB76B;
+  --mood-light: rgba(159, 183, 107, 0.1);
+}
+
+/* Active mood pill colors */
+.mood-pill[data-mood-id="comfort"].active  { background: #C73E3A; border-color: #C73E3A; color: #fff; }
+.mood-pill[data-mood-id="healthy"].active  { background: #9FB76B; border-color: #9FB76B; color: #fff; }
+.mood-pill[data-mood-id="adventurous"].active { background: #F4A026; border-color: #F4A026; color: var(--ink-charcoal); }
+.mood-pill[data-mood-id="latenight"].active { background: #14343B; border-color: #14343B; color: #fff; }
+.mood-pill[data-mood-id="hangover"].active { background: #5C3A21; border-color: #5C3A21; color: #fff; }
+.mood-pill[data-mood-id="impress"].active  { background: #D4A24C; border-color: #D4A24C; color: var(--ink-charcoal); }
+.mood-pill[data-mood-id="broke"].active    { background: #FF5C8A; border-color: #FF5C8A; color: #fff; }
+.mood-pill[data-mood-id="family"].active   { background: #F4A026; border-color: #F4A026; color: var(--ink-charcoal); }
+.mood-pill[data-mood-id="solo"].active     { background: #9FB76B; border-color: #9FB76B; color: var(--ink-charcoal); }
+
+/* Recommendation panel border matches mood */
+body[data-mood] .recommendation.visible {
+  border-color: var(--mood-color);
+  box-shadow: 0 0 0 1px var(--mood-color), 0 8px 32px rgba(0,0,0,0.15);
+}
