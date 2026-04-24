@@ -129,8 +129,13 @@ function renderRecommendation(mood) {
     const heartHTML = id ? '<button class="heart-btn' + (saved ? ' saved' : '') + '" data-type="dishes" data-id="' + id + '" aria-label="Save dish">' + (saved ? '♥' : '♡') + '</button>' : '';
     const dimClass = dimmed ? ' dish-dimmed' : '';
 
-    return '<li class="dish-item' + dimClass + '" data-dish-id="' + (id || '') + '">' +
-      '<div class="dish-main"><span class="dish-arrow">→</span><span class="dish-name">' + name + '</span></div>' +
+    var cal = nut ? nut.calories : 0;
+    return '<li class="dish-item' + dimClass + '" data-dish-id="' + (id || '') + '" data-calories="' + cal + '">' +
+      '<label class="dish-main">' +
+        '<input type="checkbox" class="dish-check" data-calories="' + cal + '">' +
+        '<span class="dish-arrow">→</span>' +
+        '<span class="dish-name">' + name + '</span>' +
+      '</label>' +
       heartHTML + nutHTML + '</li>';
   }).join('');
 
@@ -175,10 +180,15 @@ function renderRecommendation(mood) {
       '<div class="rec-title">' + mood.label + '</div>' +
       '<div class="rec-tagline">' + mood.tagline + '</div></div>' +
     '</div>' +
+    '<button class="save-combo-btn" id="save-combo-btn" title="Save this mood combo">🔖 Save combo</button>' +
     '<div class="rec-grid">' +
       '<div class="rec-card animate-rec-card">' +
         '<div class="rec-card-title">Order these</div>' +
         '<ul class="rec-dishes">' + dishesHTML + '</ul>' +
+        '<div class="calorie-calc">' +
+          '<div class="calorie-total">Meal total: <strong id="cal-total">0</strong> cal</div>' +
+          '<div class="calorie-sub" id="cal-sub"></div>' +
+        '</div>' +
       '</div>' +
       '<div class="rec-card animate-rec-card" style="animation-delay:0.08s">' +
         '<div class="rec-card-title">Cuisine vibes</div>' +
@@ -228,6 +238,43 @@ function renderRecommendation(mood) {
   });
 
   requestAnimationFrame(function() { requestAnimationFrame(function() { panel.classList.add('visible'); }); });
+
+  // Wire up calorie calculator
+  panel.querySelectorAll('.dish-check').forEach(function(cb) {
+    cb.addEventListener('change', function() {
+      var total = 0;
+      var names = [];
+      panel.querySelectorAll('.dish-check:checked').forEach(function(c) {
+        total += parseInt(c.dataset.calories || 0, 10);
+        var nameEl = c.closest('.dish-item').querySelector('.dish-name');
+        if (nameEl) names.push(nameEl.textContent.split(' ').slice(0,3).join(' '));
+      });
+      var totalEl = document.getElementById('cal-total');
+      var subEl = document.getElementById('cal-sub');
+      if (totalEl) totalEl.textContent = total;
+      if (subEl) subEl.textContent = names.length ? names.join(' + ') : 'Check dishes above to calculate';
+    });
+  });
+  // Trigger initial state
+  var subEl = document.getElementById('cal-sub');
+  if (subEl && !subEl.textContent) subEl.textContent = 'Check dishes above to calculate';
+
+  // Wire up save combo button
+  var saveComboBtn = panel.querySelector('#save-combo-btn');
+  if (saveComboBtn) {
+    saveComboBtn.addEventListener('click', function() {
+      try {
+        var combos = JSON.parse(localStorage.getItem('adl_combos') || '[]');
+        var exists = combos.some(function(c) { return c.moodId === mood.id; });
+        if (!exists) {
+          combos.push({ moodId: mood.id, label: mood.label, emoji: mood.emoji, savedAt: Date.now() });
+          localStorage.setItem('adl_combos', JSON.stringify(combos));
+        }
+        saveComboBtn.textContent = exists ? '🔖 Already saved' : '✅ Combo saved!';
+        setTimeout(function() { saveComboBtn.textContent = '🔖 Save combo'; }, 2000);
+      } catch(e) {}
+    });
+  }
 }
 
 // ── PLATFORM CARDS ───────────────────────────────────────────────────────────
@@ -298,7 +345,9 @@ function renderFavDrawer() {
         const links = Object.entries(r.platforms || {}).map(function(entry) {
           return '<a href="' + entry[1] + '" target="_blank" rel="noopener" style="color:' + (P_COLORS[entry[0]] || '#ccc') + '">' + (P_NAMES[entry[0]] || entry[0]) + '</a>';
         }).join(' · ');
-        html += '<div class="fav-item"><div class="fav-item-name">' + r.name + ' <span class="fav-item-price">' + r.priceRange + '</span></div><div class="fav-item-sub">' + links + '</div><button class="fav-remove" data-type="restaurants" data-id="' + id + '">remove</button></div>';
+        var note = (function() { try { return JSON.parse(localStorage.getItem('adl_favorites') || '{}').notes || {}; } catch { return {}; } })();
+        var noteVal = note['restaurants_' + id] || '';
+        html += '<div class="fav-item"><div class="fav-item-name">' + r.name + ' <span class="fav-item-price">' + r.priceRange + '</span></div><div class="fav-item-sub">' + links + '</div><button class="fav-remove" data-type="restaurants" data-id="' + id + '">remove</button><textarea class="fav-note" placeholder="Add a note..." data-type="restaurants" data-id="' + id + '">' + noteVal + '</textarea></div>';
       });
     }
     if (savedDishes.length) {
@@ -306,7 +355,9 @@ function renderFavDrawer() {
       savedDishes.forEach(function(id) {
         const entry = allDishes[id];
         if (!entry) return;
-        html += '<div class="fav-item"><div class="fav-item-name">' + entry.dish.name + '</div><div class="fav-item-sub">' + entry.mood + ' · ' + entry.dish.nutrition.calories + ' cal</div><button class="fav-remove" data-type="dishes" data-id="' + id + '">remove</button></div>';
+        var noteD = (function() { try { return JSON.parse(localStorage.getItem('adl_favorites') || '{}').notes || {}; } catch { return {}; } })();
+        var noteValD = noteD['dishes_' + id] || '';
+        html += '<div class="fav-item"><div class="fav-item-name">' + entry.dish.name + '</div><div class="fav-item-sub">' + entry.mood + ' · ' + entry.dish.nutrition.calories + ' cal</div><button class="fav-remove" data-type="dishes" data-id="' + id + '">remove</button><textarea class="fav-note" placeholder="Add a note..." data-type="dishes" data-id="' + id + '">' + noteValD + '</textarea></div>';
       });
     }
   }
@@ -321,6 +372,15 @@ function renderFavDrawer() {
       refreshSavedBadge();
       renderFavDrawer();
       if (currentMood) renderRecommendation(moods.find(function(m) { return m.id === currentMood; }));
+    });
+  });
+
+  drawer.querySelectorAll('.fav-note').forEach(function(ta) {
+    ta.addEventListener('blur', function() {
+      var data = (function() { try { return JSON.parse(localStorage.getItem('adl_favorites') || '{}'); } catch { return {}; } })();
+      if (!data.notes) data.notes = {};
+      data.notes[ta.dataset.type + '_' + ta.dataset.id] = ta.value;
+      try { localStorage.setItem('adl_favorites', JSON.stringify(data)); } catch(e) {}
     });
   });
 }

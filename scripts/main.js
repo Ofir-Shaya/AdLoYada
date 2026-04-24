@@ -1,5 +1,6 @@
 import { buildMoodPills, buildStickyChips, buildFilterBar, buildPlatformCards, buildCuisineCards, openFavDrawer, refreshSavedBadge } from './mood.js';
 import { initSurpriseButton } from './surprise.js';
+import { initSearch } from './search.js';
 
 function initStickyNav() {
   const nav = document.getElementById('sticky-nav');
@@ -56,5 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
   initHeroEmojis();
   initFavButton();
   refreshSavedBadge();
+  initSearch();
   setTimeout(initScrollReveal, 300);
 });

@@ -1022,3 +1022,63 @@ body {
 .fav-item-sub a { color: var(--pomegranate); text-decoration: none; }
 .fav-remove { background: none; border: none; font-size: 0.75rem; color: #bbb; cursor: pointer; padding: 0; text-decoration: underline; }
 .fav-remove:hover { color: var(--pomegranate); }
+.fav-note {
+  width: 100%; margin-top: 0.5rem; padding: 0.4rem 0.6rem;
+  border: 1px solid var(--sand); border-radius: 6px;
+  font-size: 0.78rem; font-family: var(--font-body);
+  color: var(--ink-charcoal); background: var(--bg-cream);
+  resize: vertical; min-height: 40px;
+}
+.fav-note:focus { outline: none; border-color: var(--saffron); }
+
+/* ── CALORIE CALCULATOR ─────────────────────────────────────────── */
+.dish-check { accent-color: var(--saffron); cursor: pointer; flex-shrink: 0; margin-right: 0.3rem; }
+.dish-item label.dish-main { cursor: pointer; flex: 1; }
+.calorie-calc {
+  margin-top: 0.75rem; padding: 0.75rem 1rem;
+  background: rgba(244,160,38,0.08); border-radius: 10px;
+  border: 1px solid rgba(244,160,38,0.2);
+}
+.calorie-total { font-size: 0.9rem; color: rgba(255,255,255,0.9); font-weight: 600; }
+.calorie-total strong { color: var(--saffron); font-size: 1.1rem; }
+.calorie-sub { font-size: 0.75rem; color: rgba(255,255,255,0.45); margin-top: 0.2rem; font-style: italic; }
+
+/* ── SAVE COMBO BUTTON ──────────────────────────────────────────── */
+.save-combo-btn {
+  background: rgba(255,255,255,0.08); border: 1.5px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.75); font-size: 0.8rem; font-family: var(--font-body);
+  padding: 0.35rem 0.85rem; border-radius: 100px; cursor: pointer;
+  transition: all 0.2s; margin-top: 0.5rem; display: inline-block;
+}
+.save-combo-btn:hover { background: rgba(255,255,255,0.15); color: #fff; border-color: var(--saffron); }
+
+/* ── SEARCH BAR ─────────────────────────────────────────────────── */
+.site-search-bar { position: relative; margin-bottom: 1.5rem; max-width: 520px; }
+.site-search-input {
+  width: 100%; padding: 0.75rem 1.1rem;
+  border-radius: 100px;
+  background: rgba(255,255,255,0.1);
+  border: 1.5px solid rgba(255,255,255,0.18);
+  color: #fff; font-size: 0.95rem; font-family: var(--font-body);
+  outline: none; transition: border-color 0.2s, background 0.2s;
+}
+.site-search-input::placeholder { color: rgba(255,255,255,0.4); }
+.site-search-input:focus { background: rgba(255,255,255,0.15); border-color: var(--saffron); }
+.search-results {
+  position: absolute; top: calc(100% + 6px); left: 0; right: 0;
+  background: #fff; border-radius: 14px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  overflow: hidden; z-index: 50;
+}
+.search-result-item {
+  display: flex; align-items: center; gap: 0.75rem;
+  padding: 0.75rem 1rem; cursor: pointer;
+  border-bottom: 1px solid var(--sand); transition: background 0.15s;
+}
+.search-result-item:last-child { border-bottom: none; }
+.search-result-item:hover { background: var(--bg-cream); }
+.sr-icon { font-size: 1.2rem; flex-shrink: 0; }
+.sr-body { flex: 1; min-width: 0; }
+.sr-label { font-size: 0.875rem; font-weight: 600; color: var(--ink-charcoal); }
+.sr-sub { font-size: 0.75rem; color: #888; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sr-type { font-size: 0.65rem; font-weight: 600; color: #bbb; text-transform: uppercase; flex-shrink: 0; }

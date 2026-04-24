@@ -14,8 +14,10 @@ function buildCTACards(mood) {
   const dishName = typeof firstDish === 'object' ? firstDish.name : firstDish;
   const shortDish = dishName.split(' ').slice(0, 3).join(' ');
 
+  const CUISINE_MAP = { pizza:'italian', burgers:'american', shawarma:'lebanese', thai:'thai' };
+  const cuisineIds = mood.cuisines.map(function(c) { var k = c.toLowerCase(); return CUISINE_MAP[k] || k; });
   const matchRest = (typeof restaurants !== 'undefined' ? restaurants : []).find(function(r) {
-    return mood.cuisines.some(function(c) { return r.cuisine_id === c.toLowerCase(); });
+    return cuisineIds.includes(r.cuisine_id);
   });
 
   const searchUrl = (typeof platformLinks !== 'undefined' && platformLinks[p1])
