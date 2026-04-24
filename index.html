@@ -19,6 +19,7 @@
   <nav class="sticky-nav" id="sticky-nav" aria-label="Quick mood selector">
     <span class="sticky-nav-label">craving:</span>
     <div class="sticky-mood-chips" id="sticky-mood-chips"></div>
+    <button class="saved-badge" id="saved-badge" hidden>♥ Saved <span id="saved-count">0</span></button>
   </nav>
 
   <!-- HERO -->
@@ -45,6 +46,8 @@
       <span class="section-label">Step one</span>
       <h2 class="section-title">How are you <em>feeling?</em></h2>
       <p class="section-desc">Be honest. No one's judging. The food knows.</p>
+
+      <div class="quality-filter-bar" id="quality-filter-bar"></div>
 
       <div class="mood-grid" id="mood-grid" role="group" aria-label="Pick your mood"></div>
 
@@ -188,6 +191,10 @@
     🎲
     <span class="tooltip">Surprise me</span>
   </button>
+
+  <!-- FAVORITES DRAWER -->
+  <div class="fav-overlay" id="fav-overlay"></div>
+  <aside class="fav-drawer" id="fav-drawer" aria-label="Saved favourites"></aside>
 
   <!-- SCRIPTS — data first, then modules -->
   <script src="scripts/data.js"></script>
